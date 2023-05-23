@@ -63,7 +63,7 @@ module system_top (
   inout           iic_scl,
   inout           iic_sda,
 
-  inout   [10:0]  gpio_bd,
+  // inout   [10:0]  gpio_bd,
 
   input           rx_clk_in,
   input           rx_frame_in,
@@ -88,11 +88,16 @@ module system_top (
   output          spi_csn,
   output          spi_clk,
   output          spi_mosi,
-  input           spi_miso,
+  input           spi_miso
 
-  output  [27:0]  gp_out,
-  input   [27:0]  gp_in
+  // output  [27:0]  gp_out,
+  // input   [27:0]  gp_in
 );
+
+  wire [27:0]  gp_out;
+  reg [27:0]  gp_in;
+  wire [10:0]  gpio_bd;
+
 
   // internal signals
 

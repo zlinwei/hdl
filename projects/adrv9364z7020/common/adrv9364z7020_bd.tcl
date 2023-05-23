@@ -37,32 +37,56 @@ set otg_vbusoc      [create_bd_port -dir I otg_vbusoc]
 # instance: sys_ps7
 
 ad_ip_instance processing_system7 sys_ps7
-ad_ip_parameter sys_ps7 CONFIG.PCW_PRESET_BANK0_VOLTAGE "LVCMOS 1.8V"
+ad_ip_parameter sys_ps7 CONFIG.PCW_PRESET_BANK0_VOLTAGE "LVCMOS 3.3V"
 ad_ip_parameter sys_ps7 CONFIG.PCW_PRESET_BANK1_VOLTAGE "LVCMOS 1.8V"
-ad_ip_parameter sys_ps7 CONFIG.PCW_PACKAGE_NAME fbg676
+ad_ip_parameter sys_ps7 CONFIG.PCW_PACKAGE_NAME clg484
 ad_ip_parameter sys_ps7 CONFIG.PCW_GPIO_MIO_GPIO_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_PERIPHERAL_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_ENET0_IO "MIO 16 .. 27"
 ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_GRP_MDIO_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_GRP_MDIO_IO "MIO 52 .. 53"
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_PERIPHERAL_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET_RESET_SELECT "Separate reset pins"
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_RESET_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_RESET_IO "MIO 8"
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_RESET_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_RESET_IO "MIO 51"
+
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_PERIPHERAL_ENABLE 1
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET_RESET_SELECT "Separate reset pins"
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_RESET_ENABLE 1
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET0_RESET_IO "MIO 8"
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_RESET_ENABLE 1
+# ad_ip_parameter sys_ps7 CONFIG.PCW_ENET1_RESET_IO "MIO 51"
+
 ad_ip_parameter sys_ps7 CONFIG.PCW_SD0_PERIPHERAL_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_SD0_GRP_CD_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_SD0_GRP_CD_IO "MIO 50"
+ad_ip_parameter sys_ps7 CONFIG.PCW_SD0_GRP_CD_IO "MIO 47"
 ad_ip_parameter sys_ps7 CONFIG.PCW_SDIO_PERIPHERAL_FREQMHZ 50
+
 ad_ip_parameter sys_ps7 CONFIG.PCW_UART1_PERIPHERAL_ENABLE 1
+ad_ip_parameter sys_ps7 CONFIG.PCW_UART1_UART1_IO {MIO 48 .. 49}
+
+ad_ip_parameter sys_ps7 CONFIG.PCW_USB0_USB0_IO {MIO 28 .. 39}
 ad_ip_parameter sys_ps7 CONFIG.PCW_USB0_PERIPHERAL_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_USB0_RESET_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_USB0_RESET_IO "MIO 7"
+ad_ip_parameter sys_ps7 CONFIG.PCW_USB0_RESET_IO "MIO 46"
+
 ad_ip_parameter sys_ps7 CONFIG.PCW_QSPI_PERIPHERAL_ENABLE 1
-ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_PARTNO "MT41K256M16 RE-125"
-ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BUS_WIDTH "32 Bit"
+ad_ip_parameter sys_ps7 CONFIG.PCW_QSPI_QSPI_IO {MIO 1 .. 6}
+
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_PARTNO "Custom"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BUS_WIDTH "16 Bit"
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_USE_INTERNAL_VREF 0
+
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_DRAM_WIDTH "16 Bits"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_SPEED_BIN "DDR3_1066F"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_DEVICE_CAPACITY "4096 MBits"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BANK_ADDR_COUNT "3"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_ROW_ADDR_COUNT "15"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_COL_ADDR_COUNT "10"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_CL "7"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_T_RCD "7"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_T_RP "7"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_CWL "6.000000"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_T_RC "50.625"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_T_FAW "50.625"
+ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_T_RAS_MIN "37.5"
+
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_TRAIN_WRITE_LEVEL 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_TRAIN_READ_GATE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_TRAIN_DATA_EYE 1
@@ -74,6 +98,7 @@ ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY0 0.202
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY1 0.217
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY2 0.216
 ad_ip_parameter sys_ps7 CONFIG.PCW_UIPARAM_DDR_BOARD_DELAY3 0.217
+
 ad_ip_parameter sys_ps7 CONFIG.PCW_TTC0_PERIPHERAL_ENABLE 0
 ad_ip_parameter sys_ps7 CONFIG.PCW_EN_CLK1_PORT 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_EN_RST1_PORT 1
@@ -86,7 +111,7 @@ ad_ip_parameter sys_ps7 CONFIG.PCW_USE_FABRIC_INTERRUPT 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_IRQ_F2P_INTR 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_GPIO_EMIO_GPIO_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_GPIO_EMIO_GPIO_IO 64
-ad_ip_parameter sys_ps7 CONFIG.PCW_IRQ_F2P_MODE REVERSE
+# ad_ip_parameter sys_ps7 CONFIG.PCW_IRQ_F2P_MODE REVERSE
 ad_ip_parameter sys_ps7 CONFIG.PCW_SPI0_PERIPHERAL_ENABLE 1
 ad_ip_parameter sys_ps7 CONFIG.PCW_SPI0_SPI0_IO EMIO
 ad_ip_parameter sys_ps7 CONFIG.PCW_SPI1_PERIPHERAL_ENABLE 1
